@@ -1,0 +1,11 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+  background-color: rgba(0, 0, 255, 0.447);
+}
+.paginator{
+  button{
+      padding: 5px 10px;
+      margin-right: 5px;
+  }
+}
