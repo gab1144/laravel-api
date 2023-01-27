@@ -22,7 +22,6 @@ class ProjectsTableSeeder extends Seeder
             $new_project->slug = Project::generateSlug($new_project->name);
             $new_project->client_name = $faker->word();
             $new_project->summary = $faker->paragraph(5);
-            $new_project->cover_image = $faker->imageUrl(640, 480, 'animals', true);
             $new_project->save();
         }
     }

@@ -28,6 +28,7 @@
     <div class="container">
         <h3>{{ project.name }}
         </h3>
+        <img :src="project.cover_image" :alt="project.cover_image_original_name">
         <span class="badge rounded-pill bg-primary mx-1"
         v-if="project.type">
         {{ project.type.name }}</span>
@@ -45,5 +46,9 @@
 
 
 
-<style>
+<style lang="scss">
+    img {
+        width: 500px;
+        display: block;
+    }
 </style>

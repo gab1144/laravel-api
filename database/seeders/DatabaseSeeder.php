@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ProjectsTableSeeder::class,
             TypesTableSeeder::class,
-            ProjectTypeSeeder::class
+            TechnologiesTableSeeder::class,
+            ProjectTypeSeeder::class,
+            ProjectsTechnologiesTableSeeder::class
         ]);
     }
 }
