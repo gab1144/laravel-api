@@ -5,6 +5,7 @@ import About from './pages/About.vue';
 import Contacts from './pages/Contacts.vue';
 import Error404 from './pages/Error404.vue';
 import Blog from './pages/Blog.vue';
+import ProjectDetail from './pages/ProjectDetail.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -29,6 +30,11 @@ const router = createRouter({
             path: '/blog',
             name: 'blog',
             component: Blog
+        },
+        {
+            path: '/blog/dettaglio-progetto/:slug',
+            name: 'detail',
+            component: ProjectDetail
         },
         {
             // rotta per 404 da mettere in fondo alle altre rotte
