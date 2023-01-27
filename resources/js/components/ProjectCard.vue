@@ -14,6 +14,14 @@
 <template>
   <div class="project-card">
         <h3>{{ project.name }}</h3>
+        <span class="badge rounded-pill bg-primary mx-1"
+        v-if="project.type">
+        {{ project.type.name }}</span>
+        <br>
+        <span class="badge rounded-pill bg-warning text-dark mx-1"
+        v-if="project.technology"
+        v-for="tech in project.technology"
+        :key="tech.id">{{ tech.name }}</span>
         <h4>Nome cliente: {{ project.client_name }}</h4>
         <span>Sommario:</span>
         <p v-html="project.summary"></p>
