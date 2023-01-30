@@ -1,16 +1,19 @@
 <script>
-    import ProjectCard from './../components/ProjectCard.vue';
-    import FormSearch from './../components/FormSearch.vue';
+    import axios from 'axios';
+
     import {store} from './../data/store';
     import {BASE_URL} from '../data/data'
 
-    import axios from 'axios';
+    import ProjectCard from './../components/ProjectCard.vue';
+    import FormSearch from './../components/FormSearch.vue';
+    import TechnologyType from './../components/TechnologyType.vue';
 
     export default {
         name: 'Blog',
         components:{
-        ProjectCard,
-        FormSearch
+            ProjectCard,
+            FormSearch,
+            TechnologyType
         },
         data(){
             return {
@@ -26,6 +29,8 @@
                         store.main_title = 'Elenco progetti';
                         store.projects = result.data.projects.data;
                         store.links = result.data.projects.links;
+                        store.types = result.data.types;
+                        store.technologies = result.data.technologies;
                         store.show_paginate = true;
                     })
             }
@@ -42,6 +47,10 @@
         <div class="row">
             <h1>{{store.main_title}}</h1>
             <FormSearch />
+        </div>
+
+        <div class="row mb-5">
+            <TechnologyType />
         </div>
 
     <div class="row d-flex flex-wrap ">
