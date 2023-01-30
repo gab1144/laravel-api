@@ -15,7 +15,6 @@
 <template>
 
     <div class="project-card">
-        {{ project.slug }}
         <h3>
             <router-link :to="{name: 'detail', params:{slug: project.slug} }">{{ project.name }}</router-link>
         </h3>
@@ -67,6 +66,14 @@
       }
     }
   }
+
+    h3 {
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
 /******************************
         RESPONSIVE
 ******************************/

@@ -1,40 +1,37 @@
 <script>
     import ProjectCard from './../components/ProjectCard.vue';
+    import FormSearch from './../components/FormSearch.vue';
+    import {store} from './../data/store';
+    import {BASE_URL} from '../data/data'
 
     import axios from 'axios';
 
     export default {
         name: 'Blog',
         components:{
-        ProjectCard
+        ProjectCard,
+        FormSearch
         },
         data(){
             return {
-                baseUrl: 'http://127.0.0.1:8000/api/',
-                projects : [],
-                pagination:{
-                    current: 1,
-                    last:null
-                }
+                BASE_URL,
+                store,
+                active_base_url: BASE_URL + 'projects'
             }
         },
         methods:{
-            getApi(page){
-                this.pagination.current = page;
-                axios.get(this.baseUrl + 'projects', {
-                params:{
-                        page: this.pagination.current
-                    }
-                })
+            getApi(url){
+                axios.get(url)
                     .then(result => {
-                        this.projects = result.data.projects.data;
-                        this.pagination.current = result.data.projects.current_page
-                        this.pagination.last = result.data.projects.last_page
+                        store.main_title = 'Elenco progetti';
+                        store.projects = result.data.projects.data;
+                        store.links = result.data.projects.links;
+                        store.show_paginate = true;
                     })
             }
         },
         mounted(){
-            this.getApi(1);
+            this.getApi(this.active_base_url);
         }
     }
 </script>
@@ -43,47 +40,30 @@
 
     <div class="container py-5">
         <div class="row">
-        <h1 class="text-white">Progetti</h1>
-    </div>
+            <h1>{{store.main_title}}</h1>
+            <FormSearch />
+        </div>
 
     <div class="row d-flex flex-wrap ">
         <ProjectCard
-            v-for="project in projects"
+            v-for="project in store.projects"
             :key="project.id"
             :project="project"/>
     </div>
 
-    <div class="paginator">
+    <div v-if="store.show_paginate" class="paginator">
         <button
-            :disabled="pagination.current === 1"
-            @click="getApi(1)"
-            > |	&lt; </button>
+            v-for="link in store.links" :key="link.label"
+            :disabled="link.active || !link.url"
+            @click="getApi(link.url)"
+            v-html="link.label" ></button>
 
-        <button
-            :disabled="pagination.current === 1"
-            @click="getApi(pagination.current - 1)"
-            > &larr; </button>
-
-        <button
-            v-for="i in pagination.last" :key="i"
-            :disabled="pagination.current === i"
-            @click="getApi(i)"
-            > {{i}} </button>
-
-        <button
-            :disabled="pagination.current === pagination.last"
-            @click="getApi(pagination.current + 1)"
-            > &rarr; </button>
-
-        <button
-            :disabled="pagination.current === pagination.last"
-            @click="getApi(pagination.last)"
-            > >| </button>
     </div>
 
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 </style>
 
