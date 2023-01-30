@@ -16,7 +16,9 @@ class ProjectsTechnologiesTableSeeder extends Seeder
      */
     public function run()
     {
+        $technologies_number = Technology::get()->count();
         $i = 0;
+
         while($i < 200){
             $project = Project::inRandomOrder()->first();
 
@@ -24,7 +26,7 @@ class ProjectsTechnologiesTableSeeder extends Seeder
 
             $project_to_compare = Project::where('id', $project->id)->with(['technology'])->first();
 
-            if(count($project_to_compare->technology) < 3){
+            if(count($project_to_compare->technology) < $technologies_number){
                 $exist = false;
                 foreach($project_to_compare->technology as $tech){
                     if($tech->id == $technology_id) {
