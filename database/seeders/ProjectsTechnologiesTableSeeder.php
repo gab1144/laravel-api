@@ -16,12 +16,26 @@ class ProjectsTechnologiesTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 200; $i++){
+        $i = 0;
+        while($i < 200){
             $project = Project::inRandomOrder()->first();
 
             $technology_id = Technology::inRandomOrder()->first()->id;
 
-            $project->technology()->attach($technology_id);
+            $project_to_compare = Project::where('id', $project->id)->with(['technology'])->first();
+
+            if(count($project_to_compare->technology) < 3){
+                $exist = false;
+                foreach($project_to_compare->technology as $tech){
+                    if($tech->id == $technology_id) {
+                        $exist = true;
+                    }
+                }
+                if(!$exist){
+                    $project->technology()->attach($technology_id);
+                    $i++;
+                }
+            }
         }
     }
 }

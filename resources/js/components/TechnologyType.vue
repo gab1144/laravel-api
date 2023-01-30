@@ -11,11 +11,9 @@
         },
         methods:{
             getApiByCategoryTag(url,id){
-                console.log(`${BASE_URL}projects/${url}/${id}`);
 
                 axios.get(`${BASE_URL}projects/${url}/${id}`)
                     .then( result => {
-                        console.log(result.data);
                         store.projects = result.data;
                         store.show_paginate = false;
                     })
