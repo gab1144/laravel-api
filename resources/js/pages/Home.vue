@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <section class="jumbotron">
+    <section class="jumbotron scroll">
         <div class="container">
             <img src="https://cdn.landesa.org/wp-content/uploads/default-user-image.png" alt="Foto profilo Gabriele Rinciari">
             <h1>Ciao, sono Gabriele</h1>
@@ -14,7 +14,7 @@ export default {
         </div>
     </section>
 
-    <section class="light-blue">
+    <section class="light-blue scroll">
             <svg class="wave-1hkxOo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none"><path class="wavePath-haxJK1 animationPaused-2hZ4IO" d="M826.337463,25.5396311 C670.970254,58.655965 603.696181,68.7870267 447.802481,35.1443383 C293.342778,1.81111414 137.33377,1.81111414 0,1.81111414 L0,150 L1920,150 L1920,1.81111414 C1739.53523,-16.6853983 1679.86404,73.1607868 1389.7826,37.4859505 C1099.70117,1.81111414 981.704672,-7.57670281 826.337463,25.5396311 Z"></path></svg>
             <div class="container">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, excepturi! Iure impedit alias itaque molestias reiciendis, rem eum dicta neque earum saepe quidem distinctio maxime minima nemo accusantium hic doloribus.
@@ -29,11 +29,11 @@ export default {
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 
     @use './../../scss/partials/vue_variables'as *;
 
-    section {
+    section{
         padding-bottom: 50px;
     }
 
@@ -68,13 +68,4 @@ export default {
         padding: 20px;
         border-radius: 10px;
     }
-
-    header, section {
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-    }
-
-html {
-  scroll-snap-type: y mandatory;
-}
 </style>

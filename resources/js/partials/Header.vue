@@ -6,7 +6,7 @@ export default {
 
 <template>
 
-    <header>
+    <header :class="{'scroll' : $route.name == 'home'}">
         <div class="logo">
             <img src="./../assets/logo-black.svg" alt="Logo Gabriele Rinciari">
         </div>

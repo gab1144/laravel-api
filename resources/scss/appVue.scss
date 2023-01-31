@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-snap-type: y mandatory;
+  }
+
 body {
     background-color: $extra-light-grey;
     font-family: 'Rubik', sans-serif;
@@ -54,4 +58,9 @@ button {
 
 .close-wave.light-blue{
     fill: $light-blue;
+}
+
+.scroll {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
