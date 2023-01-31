@@ -1,17 +1,20 @@
 <script>
-export default {
-    name: 'Contacts'
-}
+
+    import ContactForm from './../components/ContactForm.vue'
+
+    export default {
+        name: 'Contacts',
+        components: {
+            ContactForm
+        }
+    }
 </script>
 
 <template>
 
     <div class="container">
-        <h1>contatti</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corporis ducimus eius dolor vel aliquid doloremque repudiandae aperiam, neque impedit, rem iusto sit sint? Sint fugiat fugit ipsum vel harum.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corporis ducimus eius dolor vel aliquid doloremque repudiandae aperiam, neque impedit, rem iusto sit sint? Sint fugiat fugit ipsum vel harum.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corporis ducimus eius dolor vel aliquid doloremque repudiandae aperiam, neque impedit, rem iusto sit sint? Sint fugiat fugit ipsum vel harum.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corporis ducimus eius dolor vel aliquid doloremque repudiandae aperiam, neque impedit, rem iusto sit sint? Sint fugiat fugit ipsum vel harum.</p>
+        <h1>Contatti</h1>
+        <ContactForm />
     </div>
 
 </template>

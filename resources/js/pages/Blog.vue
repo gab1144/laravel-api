@@ -50,7 +50,7 @@
         </div>
 
         <div class="row mb-5">
-            <TechnologyType />
+            <TechnologyType @getApi="getApi(active_base_url);"/>
         </div>
 
     <div class="row d-flex flex-wrap ">
