@@ -1,11 +1,57 @@
-@import 'node_modules/bootstrap/scss/bootstrap';
+@use 'partials/vue_variables' as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 body {
-  background-color: rgba(0, 0, 255, 0.447);
+    background-color: $extra-light-grey;
+    font-family: 'Rubik', sans-serif;
 }
+
+header {
+    background-color: $header-color;
+}
+
+main {
+    padding: 50px 0;
+}
+
 .paginator{
-  button{
-      padding: 5px 10px;
-      margin-right: 5px;
-  }
+    button{
+        padding: 5px 10px;
+        margin-right: 5px;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+button {
+    font-family: 'Rubik', sans-serif;
+    background: none;
+    border: none;
+    background-color: $light-blue;
+    color: wihte;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.light-blue svg{
+    fill: $light-blue;
+    background-color: $extra-light-grey;
+    width: 100%;
+}
+
+.close-wave{
+    transform: rotate(180deg);
+}
+
+.close-wave.light-blue{
+    fill: $light-blue;
 }

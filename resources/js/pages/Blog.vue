@@ -43,36 +43,49 @@
 
 <template>
 
-    <div class="container py-5">
-        <div class="row">
+    <div class="container">
+        <div>
             <h1>{{store.main_title}}</h1>
-            <FormSearch />
         </div>
 
-        <div class="row mb-5">
+        <div class="search-area">
+            <FormSearch />
             <TechnologyType @getApi="getApi(active_base_url);"/>
         </div>
 
-    <div class="row d-flex flex-wrap ">
-        <ProjectCard
-            v-for="project in store.projects"
-            :key="project.id"
-            :project="project"/>
+        <div class="projects-area">
+            <ProjectCard
+                v-for="project in store.projects"
+                :key="project.id"
+                :project="project"/>
+        </div>
+
+        <div v-if="store.show_paginate" class="paginator">
+            <button
+                v-for="link in store.links" :key="link.label"
+                :disabled="link.active || !link.url"
+                @click="getApi(link.url)"
+                v-html="link.label" ></button>
+
+        </div>
+
     </div>
-
-    <div v-if="store.show_paginate" class="paginator">
-        <button
-            v-for="link in store.links" :key="link.label"
-            :disabled="link.active || !link.url"
-            @click="getApi(link.url)"
-            v-html="link.label" ></button>
-
-    </div>
-
-  </div>
 </template>
 
 <style lang="scss" scoped>
 
+    .search-area{
+        margin: 20px 0;
+    }
+    .projects-area {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .paginator {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 </style>
 

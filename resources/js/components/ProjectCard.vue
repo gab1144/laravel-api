@@ -3,11 +3,6 @@
     name: 'ProjectCard',
     props:{
       project: Object
-    },
-    methods:{
-      getImagePath(imageName){
-        return new URL(`../assets/photographers/${imageName}`, import.meta.url).href
-      }
     }
   }
 </script>
@@ -18,11 +13,11 @@
         <h3>
             <router-link :to="{name: 'detail', params:{slug: project.slug} }">{{ project.name }}</router-link>
         </h3>
-        <span class="badge rounded-pill bg-primary mx-1"
+        <span class="badge"
         v-if="project.type">
         {{ project.type.name }}</span>
         <br>
-        <span class="badge rounded-pill bg-warning text-dark mx-1"
+        <span class="badge tech"
         v-if="project.technology"
         v-for="tech in project.technology"
         :key="tech.id">{{ tech.name }}</span>
@@ -34,28 +29,29 @@
 </template>
 
 <style lang="scss" scoped>
-  .project-card{
-    width: calc(calc(100% - 100px) /3);
-    background-color: blue;
-    color: white;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    padding: 20px;
-    &:hover img {
-      transform: scale(1.05);
+    @use './../../scss/partials/vue_variables'as *;
+    .project-card{
+        width: calc(calc(100% - 100px) /3);
+        background-color: $header-color;
+        color: white;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        border-radius: 20px;
+        padding: 20px;
+        &:hover img {
+        transform: scale(1.05);
     }
     .img-area{
-      width: 100%;
-      aspect-ratio: 1;
-      overflow: hidden;
-      background-color: red;
-      display: flex;
-      align-items: center;
-      img{
         width: 100%;
-        transition: 0.5s ;
-      }
+        aspect-ratio: 1;
+        overflow: hidden;
+        background-color: red;
+        display: flex;
+        align-items: center;
+        img{
+            width: 100%;
+            transition: 0.5s ;
+        }
     }
     .text-area{
       padding: 30px;
