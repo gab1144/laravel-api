@@ -1,0 +1,30 @@
+[
+  {
+    "name": "HTML",
+    "icon":"fa-brands fa-html5"
+  },
+  {
+    "name": "CSS",
+    "icon":"fa-brands fa-css3-alt"
+  },
+  {
+    "name": "JavaScript",
+    "icon":"fa-brands fa-square-js"
+  },
+  {
+    "name": "PHP",
+    "icon":"fa-brands fa-php"
+  },
+  {
+    "name": "Laravel",
+    "icon":"fa-brands fa-laravel"
+  },
+  {
+    "name": "VueJS",
+    "icon":"fa-brands fa-vuejs"
+  },
+  {
+    "name": "MySQL",
+    "icon":"fa-solid fa-database"
+  }
+]

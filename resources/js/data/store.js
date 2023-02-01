@@ -9,6 +9,7 @@ export const store = reactive({
     technologies:[],
     links:[],
     show_paginate: true,
-    main_title: 'Elenco progetti'
+    main_title: 'Elenco progetti',
+    total: null
 
 });
